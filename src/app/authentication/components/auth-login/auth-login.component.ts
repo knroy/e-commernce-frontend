@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from "../../../services/backend.service";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { TokenService } from "../../../services/token.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-auth-login',
@@ -18,7 +20,9 @@ export class AuthLoginComponent implements OnInit {
   );
 
   constructor(private backendService: BackendService,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              private matSnackbar: MatSnackBar,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,6 +34,17 @@ export class AuthLoginComponent implements OnInit {
       if (response.Success) {
         const token = response.Token;
         this.tokenService.setToken(token);
+        this.matSnackbar.open('Login success', undefined, {
+          duration: 3000
+        });
+        this.router.navigate(['/']).then();
+      }
+    }, (errorResponse: any) => {
+      let errorMessage = errorResponse?.error?.Message;
+      if (errorMessage) {
+        this.matSnackbar.open(errorMessage, undefined, {
+          duration: 3000
+        })
       }
     })
   }

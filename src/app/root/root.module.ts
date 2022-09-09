@@ -8,6 +8,7 @@ import { TokenService } from "../services/token.service";
 import { UserService } from "../services/user.service";
 import { BackendService } from "../services/backend.service";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export function startupServiceFactory(startupService: StartupService,
                                       tokenService: TokenService): Function {
@@ -51,7 +52,8 @@ export function startupServiceFactory(startupService: StartupService,
   imports: [
     BrowserModule,
     HttpClientModule,
-    RootRoutingModule
+    RootRoutingModule,
+    BrowserAnimationsModule
   ]
 })
 export class RootModule {

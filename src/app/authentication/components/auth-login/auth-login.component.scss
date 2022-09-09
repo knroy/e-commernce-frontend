@@ -1,0 +1,47 @@
+.auth-login-wrapper {
+  position: relative;
+  height: 100vh;
+  background-image: url("../../../../assets/img/auth-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .auth-login-container {
+    width: 480px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .card{
+      padding: 32px;
+    }
+
+
+    .logo {
+
+      text-align: center;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        height: 80px;
+        width: 80px;
+      }
+
+      .title {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .sub-title {
+        font-size: 12px;
+        margin: 0;
+      }
+
+    }
+
+  }
+
+
+}
