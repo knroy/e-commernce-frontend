@@ -18,4 +18,10 @@ export class BackendService {
     return this.httpClient.post(url, authenticate);
   }
 
+  AccountVerify(verificationToken: string) {
+    let payload = { token: verificationToken };
+    let url = `${this.baseUrl}/Verify`;
+    return this.httpClient.post(url, payload);
+  }
+
 }

@@ -1,0 +1,30 @@
+<div class="auth-login-wrapper">
+  <div class="auth-login-container">
+    <mat-card class="card">
+
+      <div class="logo">
+        <img src="assets/img/logo.png">
+        <p class="title">Avenue</p>
+        <div *ngIf="isLoading">
+          <p class="sub-title">We are verifying your account, please be patient</p>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-progress-spinner
+              strokeWidth="2"
+              diameter="20"
+              mode="indeterminate"
+              color="primary"></mat-progress-spinner>
+          </div>
+        </div>
+
+        <div *ngIf="!isLoading && !isVerified">
+          <p class="sub-title">Verification failed</p>
+          <button
+            mat-raised-button color="primary"
+            (click)="redirectToLogin()">Back to Login
+          </button>
+        </div>
+
+      </div>
+    </mat-card>
+  </div>
+</div>

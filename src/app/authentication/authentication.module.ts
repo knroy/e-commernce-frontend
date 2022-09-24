@@ -9,12 +9,16 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { AccountVerificationComponent } from './components/account-verification/account-verification.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [
     AuthLoginComponent,
-    AuthRegisterComponent
+    AuthRegisterComponent,
+    AccountVerificationComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    FlexLayoutModule
   ]
 })
 export class AuthenticationModule {

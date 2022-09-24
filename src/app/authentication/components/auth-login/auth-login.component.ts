@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { TokenService } from "../../../services/token.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { Authenticate } from "../../../interfaces/authenticate.interface";
 
 @Component({
   selector: 'app-auth-login',
@@ -30,7 +31,13 @@ export class AuthLoginComponent implements OnInit {
 
   onSubmitForm() {
     const data = this.authenticationForm.getRawValue();
-    this.backendService.Authenticate(data).subscribe((response: any) => {
+
+    let authPayload: Authenticate = {
+      Email: data.Email,
+      Password: data.Password
+    }
+
+    this.backendService.Authenticate(authPayload).subscribe((response: any) => {
       if (response.Success) {
         const token = response.Token;
         this.tokenService.setToken(token);
